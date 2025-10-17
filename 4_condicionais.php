@@ -20,7 +20,7 @@
 </head>
 <body>
     <h2>Digite a senha para continuar: </h2>
-    <form action="4b_bem_vindo.php" method="post">
+    <form action="" method="post">
         <label for="senha">Senha</label>
         <input type="password" name="senha" id="senha" required>
         <button type="submit">Enviar</button>
