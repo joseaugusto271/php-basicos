@@ -1,6 +1,25 @@
+<?php 
+    $serverName = "127.0.0.1";
+    $userName = "root";
+    $password = "Senai@118";
+    $dbName = "exercicio";
 
+    try {
+        // Tenta criar uma conexão com o banco de dados
+        $conn = new mysqli($serverName, $userName, $password, $dbName);
+
+        if ($conn -> connect_error) {
+            throw new Exception ("Falha na conexão" . $conn -> connect_error);
+        }
+        echo "Conexão realizada com sucesso.";
+    } catch (Exception $e){
+        // Exibe uma mensagem de erro amigável
+        echo "Erro ao conectar ao banco de dados.";
+    }
+?>
 <!-- Para criar o BD -->
 <!-- CREATE DATABASE exercicio; -->
+ 
 
 <!-- Para criar a Tabela -->
 <!-- CREATE TABLE clientes (
@@ -8,5 +27,3 @@
     nome VARCHAR(100) NOT NULL,
     email VARCHAR(100) NOT NULL
 ); -->
-
-
