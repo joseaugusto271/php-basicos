@@ -21,7 +21,7 @@
     // Verifica se um id foi passado via URL para edição
     if (isset($_GET['id'])) {
         $id = $_GET['id'];
-        $sql = "SELECT * FROM clientes";
+        $sql = "SELECT * FROM clientes WHERE id='$id'";
         $result = $conn->query($sql);
 
         // Verifica se encontrou um registro no banco de dados
@@ -39,7 +39,7 @@
         $nome = $_POST['nome'];
         $email = $_POST['email'];
 
-        $sql = "UPDATE clientes SET nome = '$nome', email = '$email' WHERE id = '$id'";
+        $sql = "UPDATE clientes SET nome='$nome', email='$email' WHERE id='$id'";
 
         if ($conn->query($sql) === TRUE) {
             echo "<p>Cliente atualizado com sucesso</p>";
@@ -58,7 +58,7 @@
 </head>
 <body>
     <form action="" method="post">
-        <input type="hidden" name="id" value="<?php echo $cliente['is'] ?? '';?>">
+        <input type="hidden" name="id" value="<?php echo $cliente['id'] ?? '';?>">
 
         <label for="nome">Nome: </label>
         <input type="text" name="nome" id="nome" value="<?php echo isset($cliente['nome']) ? $cliente['nome'] : '';?>" required> <br>
